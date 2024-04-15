@@ -11,6 +11,7 @@ void* depositar(void* arg) {
 	double cantidad = *((double*)arg);
 	pthread_mutex_lock(&mutex); // Bloquear el mutex antes de realizar la operación crítica
 	saldo += cantidad;
+	printf("Cantidad depositada: %.2f\n", cantidad);
 	pthread_mutex_unlock(&mutex); // Desbloquear el mutex después de realizar la operación crítica
 	pthread_exit(NULL);
 }
